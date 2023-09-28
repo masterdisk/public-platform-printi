@@ -1,4 +1,4 @@
-<script setup lang="ts">
+<script lang="ts" setup>
 const client = useSupabaseClient()
 const user = useSupabaseUser()
 
@@ -34,6 +34,9 @@ const signOut = async () => {
 
 </script>
 <template>
+  <h1 class="text-3xl font-bold underline">
+    Hello world!
+        </h1>
 <div v-if="!authenticated">
     <button @click="signUp">
       Sign up with user password
