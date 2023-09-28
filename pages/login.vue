@@ -1,4 +1,7 @@
 <script lang="ts" setup>
+import { useCounterStore } from "@/stores/test.store";
+
+const store = useCounterStore();
 const client = useSupabaseClient();
 const user = useSupabaseUser();
 
@@ -32,7 +35,9 @@ const signOut = async () => {
 </script>
 <template>
   <div>
-    <h1 class="text-3xl font-bold underline">Hello world!</h1>
+    <h1 class="text-3xl font-bold underline">
+      Hello world! {{ store.doubleCount }}
+    </h1>
     <div v-if="!authenticated">
       <button @click="signUp">Sign up with user password</button>
       <input v-model="email" type="email" />
