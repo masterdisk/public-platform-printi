@@ -22,12 +22,17 @@ export default defineNuxtConfig({
       ["defineStore", "definePiniaStore"], // import { defineStore as definePiniaStore } from 'pinia'
     ],
   },
+  runtimeConfig: {
+    public: {
+      baseUrl: process.env.BASE_URL || "http://localhost:3000",
+    },
+  },
   supabase: {
     // Options
     redirectOptions: {
-      login: "/*",
+      login: "/login",
       callback: "/confirm",
-      exclude: [],
+      exclude: ["/", "/dashboard"],
     },
     cookieOptions: {
       maxAge: 60 * 60 * 8,

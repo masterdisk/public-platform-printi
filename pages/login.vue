@@ -25,13 +25,12 @@ const signIn = async () => {
     password: password.value,
   });
   if (error) console.log(error);
+  else navigateTo("/dashboard");
 };
 
 // sign out function for the supabase client
-const signOut = async () => {
-  const { error } = await client.auth.signOut();
-  if (error) console.log(error);
-};
+
+// timeout method
 </script>
 <template>
   <div>
@@ -43,9 +42,6 @@ const signOut = async () => {
       <input v-model="email" type="email" />
       <input v-model="password" type="password" />
       <button @click="signIn">Sign in</button>
-    </div>
-    <div v-else>
-      <button @click="signOut">Sign Out</button>
     </div>
   </div>
 </template>
