@@ -1,28 +1,21 @@
-<script setup lang="ts">
-
-const client = useSupabaseClient()
-const user = useSupabaseUser()
-
+<script lang="ts" setup>
+const client = useSupabaseClient();
+const user = useSupabaseUser();
 
 if (user.value) {
-  console.log(user.value)
+  console.log(user.value);
 }
 
 const signOut = async () => {
-  const { error } = await client.auth.signOut()
-  if (error) console.log(error)
-}
-
+  const { error } = await client.auth.signOut();
+  if (error) console.log(error);
+};
 </script>
 
 <template>
   <div>
-    <button @click="signOut">
-      Sign Out
-    </button>
+    <button @click="signOut">Sign Out</button>
   </div>
 </template>
 
-<style scoped>
-
-</style>
+<style scoped></style>
