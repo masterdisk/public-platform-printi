@@ -25,25 +25,6 @@ import {
   XMarkIcon,
 } from "@heroicons/vue/24/outline";
 import { ChevronDownIcon } from "@heroicons/vue/20/solid";
-import { storeToRefs } from "pinia";
-
-const supabase = useSupabaseAuthClient();
-const user = useSupabaseUser();
-const accountStore = useAccountStore();
-const { dbUser, activeAccountId } = storeToRefs(accountStore);
-const notifyStore = useNotifyStore();
-const { notifications } = storeToRefs(notifyStore);
-
-onMounted(async () => {
-  await accountStore.init();
-});
-
-async function signout() {
-  await supabase.auth.signOut();
-  if (accountStore) accountStore.signout();
-
-  navigateTo("/", { replace: true });
-}
 
 const solutions = [
   {
@@ -385,30 +366,15 @@ const blogPosts = [
           <div class="flex items-center md:ml-12">
             <nuxt-link
               class="text-base font-medium text-gray-500 hover:text-gray-900"
-              to="/signin"
+              to="/login"
             >
               Sign in
             </nuxt-link>
             <nuxt-link
-              v-if="!user"
               class="ml-8 inline-flex items-center justify-center rounded-md border border-transparent bg-indigo-600 px-4 py-2 text-base font-medium text-white shadow-sm hover:bg-indigo-700"
-              to="/signup"
+              to="/login"
             >
               Sign up
-            </nuxt-link>
-            <nuxt-link
-              v-if="user"
-              class="ml-8 inline-flex items-center justify-center rounded-md border border-transparent bg-indigo-600 px-4 py-2 text-base font-medium text-white shadow-sm hover:bg-indigo-700"
-              @click="signout"
-            >
-              Sign Out
-            </nuxt-link>
-            <nuxt-link
-              v-if="user"
-              class="ml-8 inline-flex items-center justify-center rounded-md border border-transparent bg-indigo-600 px-4 py-2 text-base font-medium text-white shadow-sm hover:bg-indigo-700"
-              to="/dashboard"
-            >
-              Dashboard
             </nuxt-link>
           </div>
         </div>
@@ -519,13 +485,13 @@ const blogPosts = [
             <div class="mt-6">
               <a
                 class="flex w-full items-center justify-center rounded-md border border-transparent bg-indigo-600 px-4 py-2 text-base font-medium text-white shadow-sm hover:bg-indigo-700"
-                href="#"
+                href="/login"
                 >Sign up</a
               >
               <p class="mt-6 text-center text-base font-medium text-gray-500">
                 Existing customer?
                 {{ " " }}
-                <a class="text-indigo-600 hover:text-indigo-500" href="#"
+                <a class="text-indigo-600 hover:text-indigo-500" href="/login"
                   >Sign in</a
                 >
               </p>
