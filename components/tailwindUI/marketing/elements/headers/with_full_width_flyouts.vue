@@ -366,30 +366,15 @@ const blogPosts = [
           <div class="flex items-center md:ml-12">
             <nuxt-link
               class="text-base font-medium text-gray-500 hover:text-gray-900"
-              to="/signin"
+              to="/login"
             >
               Sign in
             </nuxt-link>
             <nuxt-link
-              v-if="!user"
               class="ml-8 inline-flex items-center justify-center rounded-md border border-transparent bg-indigo-600 px-4 py-2 text-base font-medium text-white shadow-sm hover:bg-indigo-700"
-              to="/signup"
+              to="/login"
             >
               Sign up
-            </nuxt-link>
-            <nuxt-link
-              v-if="user"
-              class="ml-8 inline-flex items-center justify-center rounded-md border border-transparent bg-indigo-600 px-4 py-2 text-base font-medium text-white shadow-sm hover:bg-indigo-700"
-              @click="signout"
-            >
-              Sign Out
-            </nuxt-link>
-            <nuxt-link
-              v-if="user"
-              class="ml-8 inline-flex items-center justify-center rounded-md border border-transparent bg-indigo-600 px-4 py-2 text-base font-medium text-white shadow-sm hover:bg-indigo-700"
-              to="/dashboard"
-            >
-              Dashboard
             </nuxt-link>
           </div>
         </div>
