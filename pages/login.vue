@@ -1,4 +1,5 @@
 <script lang="ts" setup>
+<<<<<<< Updated upstream
 const client = useSupabaseClient();
 const user = useSupabaseUser();
 
@@ -43,4 +44,10 @@ const signOut = async () => {
       <button @click="signOut">Sign Out</button>
     </div>
   </div>
+=======
+import simpleLogin from "~/components/tailwindUI/application-ui/forms/sign-in-forms/simple_card.vue";
+</script>
+<template>
+  <simpleLogin />
+>>>>>>> Stashed changes
 </template>
